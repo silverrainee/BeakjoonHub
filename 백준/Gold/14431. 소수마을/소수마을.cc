@@ -54,11 +54,12 @@ int main() {
     while (!pq.empty()) {
         Edge now = pq.top(); pq.pop();
         if (visited[now.to_node]) continue;
-        dijk[now.to_node] = now.dist;
         visited[now.to_node] = true;
         for (int i = 0; i < tree[now.to_node].size(); i++) {
             Edge next = tree[now.to_node][i]; next.dist += now.dist;
             if (visited[next.to_node]) continue;
+            if (dijk[next.to_node] > 0 && dijk[next.to_node] <= next.dist) continue;
+            dijk[next.to_node] = next.dist;
             pq.push(next);
         }
     }
