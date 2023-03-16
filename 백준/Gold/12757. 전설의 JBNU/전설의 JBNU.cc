@@ -4,14 +4,14 @@
 using namespace std;
 
 int findKey(map<int,int>& m, int key){
-    auto i = m.lower_bound(key);
+    map<int,int>::iterator i = m.lower_bound(key);
     if(i == m.end()){
         i--;
     }
     else if(i == m.begin()){
     }
     else {
-        auto j = i; j--;
+        map<int,int>::iterator j = i; j--;
         if(2*key == i->first + j->first) return -1;
         if(abs(j->first - key) < abs(i->first - key)) i = j;
     }
@@ -32,7 +32,7 @@ int main() {
 
     for(int i=0; i<M; i++){
         ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-        
+
         int c; cin >> c; // 명령
 
         if(c == 1){ // 데이터 삽입
