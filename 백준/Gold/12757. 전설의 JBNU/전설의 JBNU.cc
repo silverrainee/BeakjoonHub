@@ -31,6 +31,8 @@ int main() {
     }
 
     for(int i=0; i<M; i++){
+        ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+        
         int c; cin >> c; // 명령
 
         if(c == 1){ // 데이터 삽입
